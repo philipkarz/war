@@ -20,5 +20,11 @@ h1 {
 }
 
 img {
-    
+margin: 50px;
+}
+
+div {
+    display: inline-block;
+   text-align: center;
+   margin: auto 500px
 }
