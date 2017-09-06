@@ -1,5 +1,12 @@
 
-var score = 0
+var div = $('#div')
+function startGame() {
+
+    //when player presses start btn 
+    //show cards div
+    div.show()
+    
+}
 
 var card1 = null
 var card2 = null
@@ -15,8 +22,8 @@ var game = {
     player2: {
         score: 0,
         cards: [
-            { src : 'images/ironman.jpg', value: 5 },
-            { src : 'images/hulk.png', value: 8 },
+            { src : 'images/ironman.jpg', value: 10 },
+            { src : 'images/hulk.png', value: 10 },
     
         ]
     }
@@ -36,7 +43,11 @@ currentPlayer = game.player1
 var cardOne = $('#cardOne')
 var cardTwo = $('#cardTwo')
 var winner = $('#winner')
-
+var player1Score = game.player1.score
+var player2Score = game.player2.score
+var score = 0
+var player1Points = $('#player1-points')
+var player2Points = $('#player2-points')
 
 function shuffleCards(cards) {
     for (var i = cards.length - 1; i > 0; i--) {
@@ -62,79 +73,64 @@ cardOne.on('click', function() {
 cardTwo.on('click', function() {
     
     var cardsInPlay = shuffleCards(game.player2.cards)
-card2 = cardsInPlay.pop()
+    card2 = cardsInPlay.pop()
     cardTwo.attr('src', card2.src)
-    player1Score = score ++
     checkWinner() 
+    switchPlayer()
 })
+
+var restart=$('#restart')
+restart.hide()
 
 function checkWinner() {
     if (card1.value > card2.value) {
-        winner.text('Player1 Wins!') 
+        winner.text('This round goes to Player 1!') 
+        player1Score = score ++
+        player1Points.text(score)
     } else if (card1.value === card2.value) {
         winner.text('Its a Tie!')
     } else {
-        winner.text('Player2 Wins!')
+        winner.text('This round goes to Player 2!')
+        player2Score = score ++
+        player2Points.text(score)
     }
-    reset.show()
+    restart.show()
     
 }
 //get players name then make it a variable
 //animate text of winner
-var reset=$('#reset')
-reset.hide()
 
- var div = $('#div')
- 
- function startGame() {
-
-    // if (cardsInPlay === 2) 
-     //when player presses start btn 
-     //show cards
-     div.show()
-     
- }
-
-function restart() {
+restart.on('click', function() {
+    card1.text('<img src=images/marvel.jpg>')
+    player1Points.text('')
+    player2Points.text('')
     currentPlayer = game.player1
    
-}
+})
 
-var player1Score = game.player1.score
-
-var player2Score = game.player2.score
+var timeLeft = $('#timeLeft')
+var theIntervalId = setInterval (countDown, 1000)
+var finalWinner = $('#final-winner')
+var seconds = 60
 
 function countDown(){
+
+    
     seconds = seconds - 1
-    timeLeft.innerHTML = 'Time Left: ' + seconds + ' seconds'
-    if (seconds <= 0){
-        clearInterval( theIntervalId );
-        alert('Your score is ' + score);
-        if(player1Score == null){
-            player1Score = score
-        }
-        else {
-            player2Score = score
-        }
-        $(‘#turn’).toggleClass(‘a’);
-        turnsPlayed += 1
-
-        if(turnsPlayed == 5) {
-            if(player1Score > player2Score) {
-                alert('Player 1 wins')
-            }
-            else {
-                alert('Player 2 wins')
-            }
-        }
-
+    timeLeft.html('Time Left: ' + seconds + ' seconds')
+    if (seconds <= 0 && player1Score > player2Score){
+        clearInterval(theIntervalId)
+        finalWinner.text('DC WINS!')
+    } else if {
+      finalWinner.text('MARVEL WINS!')  
+    }
 
         theIntervalId = setInterval(countDown, 1000)
-        seconds = 30
-        timeLeftElement.innerHTML = “Time Left: ” + seconds + ” seconds”
-        score = 0
-        pointsElement.innerText = “Score: 0”
-    } 
+        seconds = 60
+        timeLeft.text('Time Left: ' + seconds + ' seconds')
 
-    // var audio = "//audio clip"
-    // audio.play()
+
+    
+
+// var sound = new Audio('winner.mp3')
+//     sound.play()
