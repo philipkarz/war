@@ -18,13 +18,23 @@ h1 {
     font-size: 40px;
     text-align: center;
 }
+img:hover {
+    background: grey;
+}
 
 img {
 margin: 50px;
+text-align: center;
+width: 200px;
+height: 300px;
+background-size: cover;
+border-radius: 30px;
 }
 
 div {
-    display: inline-block;
+    display: inline;
    text-align: center;
-   margin: auto 500px
+   margin: auto 300px;
 }
+
+
