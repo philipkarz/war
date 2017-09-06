@@ -1,12 +1,15 @@
+var seconds = 10
+var startGame = $('#start-game')
+var carddiv = $('#carddiv')
+var restart=$('#restart')
+// carddiv.hide()
+// restart.hide()
 
-var div = $('#div')
-function startGame() {
-
-    //when player presses start btn 
-    //show cards div
-    div.show()
+startGame.on('click', function() {
+theIntervalId = setInterval(countDown, 1000)
+// carddiv.show()
     
-}
+})
 
 var card1 = null
 var card2 = null
@@ -61,10 +64,10 @@ function shuffleCards(cards) {
     return cards
 }
 
+
+
 cardOne.on('click', function() {
-    
     var cardsInPlay = shuffleCards(game.player1.cards)
-    
     card1 = cardsInPlay.pop()
     cardOne.attr('src', card1.src)
     switchPlayer()
@@ -76,61 +79,65 @@ cardTwo.on('click', function() {
     card2 = cardsInPlay.pop()
     cardTwo.attr('src', card2.src)
     checkWinner() 
+    winner.text('')
     switchPlayer()
 })
 
-var restart=$('#restart')
-restart.hide()
-
 function checkWinner() {
+    console.log(card1.value, card2.value)
     if (card1.value > card2.value) {
         winner.text('This round goes to Player 1!') 
-        player1Score = score ++
-        player1Points.text(score)
+        player1Score += 1
+        player1Points.text(player1Score)
     } else if (card1.value === card2.value) {
         winner.text('Its a Tie!')
     } else {
         winner.text('This round goes to Player 2!')
-        player2Score = score ++
-        player2Points.text(score)
+        player2Score += 1
+        player2Points.text(player2Score)
     }
-    restart.show()
+    
     
 }
 //get players name then make it a variable
 //animate text of winner
 
+var timeLeft = $('#timeLeft')
+var finalWinner = $('#final-winner')
+
+function countDown(){
+    seconds = seconds - 1
+    timeLeft.html('Time Left: ' + seconds + ' seconds')
+    console.log(player1Score, player2Score)
+
+    if(seconds <= 0){
+        clearInterval(theIntervalId)
+        restart.show()
+        //check player 1 and player 2 score
+        if (player1Score > player2Score) {
+            finalWinner.text('DC WINS!')
+        } else if (player1Score === player2Score) {
+            finalWinner.text('Tied!') 
+        } else {
+            finalWinner.text('MARVEL WINS!') 
+        }
+    }
+}
+
+function flipCard() {
+
+}
+
+
 restart.on('click', function() {
-    card1.text('<img src=images/marvel.jpg>')
+    cardOne.attr('src', './images/back.png')
     player1Points.text('')
     player2Points.text('')
     currentPlayer = game.player1
-   
+    clearInterval(theIntervalId)
+    finalWinner.text('')
 })
-
-var timeLeft = $('#timeLeft')
-var theIntervalId = setInterval (countDown, 1000)
-var finalWinner = $('#final-winner')
-var seconds = 60
-
-function countDown(){
-
-    
-    seconds = seconds - 1
-    timeLeft.html('Time Left: ' + seconds + ' seconds')
-    if (seconds <= 0 && player1Score > player2Score){
-        clearInterval(theIntervalId)
-        finalWinner.text('DC WINS!')
-    } else if {
-      finalWinner.text('MARVEL WINS!')  
-    }
-
-        theIntervalId = setInterval(countDown, 1000)
-        seconds = 60
-        timeLeft.text('Time Left: ' + seconds + ' seconds')
-
-
     
 
-// var sound = new Audio('winner.mp3')
-//     sound.play()
+var sound = new Audio('winner.mp3')
+    sound.play()
