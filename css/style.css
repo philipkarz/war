@@ -1,5 +1,7 @@
 
 
+
+
 h1 {
     font-size: 80px;
     text-align: center;
@@ -31,11 +33,57 @@ margin: auto 300px;
 
 body {
 text-align: center;
-background-color: #666;
-background-size: cover;
-background-image: url('http://papers.co/wallpaper/papers.co-ai54-marvel-logo-film-art-illust-minimal-36-3840x2400-4k-wallpaper.jpg')
+background-color: dodgerblue;
+/* background-size: 90%; */
+/* background-image: url('http://jamiesawyer.com/wp-content/uploads/2016/05/Captain-America-Civil-War-Key-Art.jpg'); */
+/* font-family: 'Orbitron', sans-serif; */
+font-family: 'Righteous', cursive;
+/* font-family: 'Baloo Tammudu', cursive; */
 }
 
+button {
+    height: 100px;
+    width: 200px;
+    font-size: 30px;
+    background: #666;
+    margin: 25px;
+    border-radius: 25px;
+}
+
+
+#timeLeft {
+    text-align: center;
+}
+
+/* #right {
+    float: right;
+    margin: 800px 0;
+    
+}
+
+#left {
+    float: left;
+    margin: 800px auto;
+} */
+
+/* @keyframes text {
+    0%   {color:red; left:0px; top:0px;}
+    25%  {color:yellow; left:200px; top:0px;}
+    50%  {color:blue; left:200px; top:200px;}
+    75%  {color:green; left:0px; top:200px;}
+    100% {color:red; left:0px; top:0px;}
+}
+
+/* The element to apply the animation to */
+/* #final-winner {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    background-color: red;
+    animation-name: text;
+    animation-duration: 8s;
+    animation-iteration-count: infinite;
+} */ 
 
 /* .card {
     width: 100%;

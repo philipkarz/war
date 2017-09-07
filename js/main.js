@@ -2,7 +2,7 @@ var seconds = 30
 var startGame = $('#start-game')
 var carddiv = $('#carddiv')
 var restart=$('#restart')
-carddiv.hide()
+// carddiv.hide()
 // restart.hide()
 
 // $(function(){
@@ -15,7 +15,9 @@ carddiv.hide()
 
 startGame.on('click', function() {
 theIntervalId = setInterval(countDown, 1000)
+seconds = 30
 carddiv.show()
+fightsound.play()
     
 })
 
@@ -72,8 +74,8 @@ currentPlayer = game.player1
          currentPlayer = game.player1
      }
   }
-
-  
+var fightsound = new Audio('images/fight.mp3')
+var sound = new Audio('images/winner3.mp3')  
 var cardOne = $('#cardOne')
 var cardTwo = $('#cardTwo')
 var winner = $('#winner')
@@ -95,7 +97,7 @@ function shuffleCards(cards) {
     return cards
 }
 
-
+var card = $('#card')
 
 cardOne.on('click', function() {
     var cardsInPlay = shuffleCards(game.player1.cards)
@@ -110,16 +112,22 @@ cardTwo.on('click', function() {
     var cardsInPlay = shuffleCards(game.player2.cards)
     card2 = cardsInPlay.pop()
     cardTwo.attr('src', card2.src)
+
+    // card.flip('toggle');
     checkWinner() 
     winner.text('')
     switchPlayer()
 
 })
 
+// $('body').on('click', function() {
+//  $('h1').effect('bounce', 'slow')
+// })
+
 function checkWinner() {
     console.log(card1.value, card2.value)
     if (card1.value > card2.value) {
-        winner.text('Player1 wins this round!') 
+        winner.text('Player 1 wins this round!') 
         player1Score += 1
         player1Points.text(player1Score)
     } else if (card1.value === card2.value) {
@@ -148,18 +156,20 @@ function countDown(){
         restart.show()
         //check player 1 and player 2 score
         if (player1Score > player2Score) {
-            finalWinner.text('PLAYER 1 WINS!')
+            finalWinner.text('WINNER Player 1!')
         } else if (player1Score === player2Score) {
             finalWinner.text('Tied!') 
         } else {
-            finalWinner.text('PLAYER 2 WINS!') 
+            finalWinner.text('WINNER Player 2!') 
         }
+        sound.play()
     }
 }
 
 function flipCard() {
 
 }
+
 
 
 restart.on('click', function() {
@@ -171,8 +181,7 @@ restart.on('click', function() {
     currentPlayer = game.player1
     clearInterval(theIntervalId)
     finalWinner.text('')
+    fightsound.play()
 })
     
 
-var sound = new Audio('winner.mp3')
-    sound.play()
