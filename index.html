@@ -9,11 +9,14 @@
     <script src="http://code.jquery.com/jquery-3.2.1.min.js"
     integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
     crossorigin="anonymous"></script>
+    
     <script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
 </head>
 <body>
     <h1>Comic Clash</h1>
   <!-- ready set click -->
+  <h1 id="fight"></h1>
+  
   <button id="start-game">Go To War</button>
   
   <button id="restart">Play Again</button>
@@ -27,21 +30,20 @@
 
 <div id="card"> 
     <div class="front"> 
-        Front content
+    <div id="carddiv">
+        <img id ="cardOne" src="images/marvel2.jpg" alt="">
+         <img id="cardTwo" src="images/marvel2.jpg" alt="">
+    </div>
     </div> 
     <div class="back">
-        Back content
+        
     </div> 
 </div>
 
 
-<div id="carddiv">
-    <img id ="cardOne" src="images/dc.jpg" alt="">
-    
-    <img id="cardTwo" src="images/marvel.jpg" alt="">
-</div>
 
-    <h2 id="timeLeft">Time Left: 10 seconds</h2>
+
+    <h2 id="timeLeft">Time Left: 30</h2>
 <br>
     <h2>Marvel</h2>
     <h2 id="player1-points"></h2>
@@ -52,6 +54,8 @@
 <br>
     
 
-    <script src="js/main.js"></script>
+
+<script src="https://raw.githubusercontent.com/mattboldt/typed.js/master/js/typed.js"></script>
+ <script src="js/main.js"></script>
 </body>
 </html>

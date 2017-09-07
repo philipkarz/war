@@ -1,13 +1,21 @@
-var seconds = 10
+var seconds = 30
 var startGame = $('#start-game')
 var carddiv = $('#carddiv')
 var restart=$('#restart')
-// carddiv.hide()
+carddiv.hide()
 // restart.hide()
+
+// $(function(){
+//     $('#fight').typed({
+//       strings: ['Ready', 'Set', 'Fight'],
+//       typeSpeed: 3
+//     });
+// });
+
 
 startGame.on('click', function() {
 theIntervalId = setInterval(countDown, 1000)
-// carddiv.show()
+carddiv.show()
     
 })
 
@@ -17,16 +25,39 @@ var game = {
     player1: {
         score: 0,
         cards: [
-            { src : 'images/superman.jpeg', value: 9 },
-            { src : 'images/batman.jpg', value: 8 },
-           
+            { src : 'images/captain.jpg', value: 1 },
+            { src : 'images/batman.jpg', value: 3 },
+            { src : 'images/ironman.jpg', value: 6 },
+            { src : 'images/rocket.jpg', value: 4 },
+            { src : 'images/thor.jpg', value: 10 },
+            { src : 'images/hulk.jpg', value: 12 },
+            { src : 'images/wolverine.jpg', value: 7 },
+            
+            { src : 'images/deadpool.jpg', value: 11 },
+            
+            { src : 'images/capybara.jpg', value: 13 },
+            { src : 'images/vision.jpg', value: 8 },
+            { src : 'images/punisher.jpg', value: 5 },
+            { src : 'images/spiderman.jpg', value: 2 },
+            { src : 'images/ghostrider.jpg', value: 9 },
         ]
     },
     player2: {
         score: 0,
         cards: [
-            { src : 'images/ironman.jpg', value: 10 },
-            { src : 'images/hulk.png', value: 10 },
+            { src : 'images/ironman.jpg', value: 6 },
+            { src : 'images/punisher.jpg', value: 5 },
+            { src : 'images/thor.jpg', value: 10 },
+            { src : 'images/hulk.jpg', value: 12 },
+            { src : 'images/deadpool.jpg', value: 11 },
+            { src : 'images/wolverine.jpg', value: 7 },
+            { src : 'images/ghostrider.jpg', value: 9 },
+            { src : 'images/rocket.jpg', value: 4 },
+            { src : 'images/captain.jpg', value: 1 },
+            { src : 'images/capybara.jpg', value: 13 },
+            { src : 'images/vision.jpg', value: 8 },
+            { src : 'images/batman.jpg', value: 3 },
+            { src : 'images/spiderman.jpg', value: 2 }, 
     
         ]
     }
@@ -71,6 +102,7 @@ cardOne.on('click', function() {
     card1 = cardsInPlay.pop()
     cardOne.attr('src', card1.src)
     switchPlayer()
+
 })
 
 cardTwo.on('click', function() {
@@ -81,18 +113,19 @@ cardTwo.on('click', function() {
     checkWinner() 
     winner.text('')
     switchPlayer()
+
 })
 
 function checkWinner() {
     console.log(card1.value, card2.value)
     if (card1.value > card2.value) {
-        winner.text('This round goes to Player 1!') 
+        winner.text('Player1 wins this round!') 
         player1Score += 1
         player1Points.text(player1Score)
     } else if (card1.value === card2.value) {
         winner.text('Its a Tie!')
     } else {
-        winner.text('This round goes to Player 2!')
+        winner.text('Player 2 wins this round')
         player2Score += 1
         player2Points.text(player2Score)
     }
@@ -107,7 +140,7 @@ var finalWinner = $('#final-winner')
 
 function countDown(){
     seconds = seconds - 1
-    timeLeft.html('Time Left: ' + seconds + ' seconds')
+    timeLeft.html('Time Left: ' + seconds)
     console.log(player1Score, player2Score)
 
     if(seconds <= 0){
@@ -115,11 +148,11 @@ function countDown(){
         restart.show()
         //check player 1 and player 2 score
         if (player1Score > player2Score) {
-            finalWinner.text('DC WINS!')
+            finalWinner.text('PLAYER 1 WINS!')
         } else if (player1Score === player2Score) {
             finalWinner.text('Tied!') 
         } else {
-            finalWinner.text('MARVEL WINS!') 
+            finalWinner.text('PLAYER 2 WINS!') 
         }
     }
 }
@@ -130,7 +163,9 @@ function flipCard() {
 
 
 restart.on('click', function() {
-    cardOne.attr('src', './images/back.png')
+    seconds = 30
+    cardTwo.attr('src', './images/marvel2.jpg')
+    cardOne.attr('src', './images/marvel2.jpg')
     player1Points.text('')
     player2Points.text('')
     currentPlayer = game.player1
