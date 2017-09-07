@@ -1,8 +1,8 @@
 var seconds = 30
 var startGame = $('#start-game')
-var carddiv = $('#carddiv')
+var board = $('#board')
 var restart=$('#restart')
-// carddiv.hide()
+board.hide()
 // restart.hide()
 
 // $(function(){
@@ -16,7 +16,7 @@ var restart=$('#restart')
 startGame.on('click', function() {
 theIntervalId = setInterval(countDown, 1000)
 seconds = 30
-carddiv.show()
+board.show()
 fightsound.play()
 //h1 text ready set fight
     
@@ -103,6 +103,8 @@ function shuffleCards(cards) {
 function reset() {
     cardTwo.attr('src', './images/marvel2.jpg')
     cardOne.attr('src', './images/marvel2.jpg')
+    card1 = null
+    card2 = null
 }
 
 var card = $('#card')
@@ -122,21 +124,20 @@ cardTwo.on('click', function() {
     var cardsInPlay = shuffleCards(game.player2.cards)
     card2 = cardsInPlay.pop()
     cardTwo.attr('src', card2.src)
-    // this.flip('toggle');
-    checkWinner() 
+    if(card1 && card2) {
+        checkWinner() 
+        setTimeout(function() {
+            reset()
+        }, 2000)
+    }
     winner.text('')
     switchPlayer()
-    //callback reset after card2 is shown
-    {
-        return reset()
-    }
-
 })
 
-function flipCard() {
+// function flipCard() {
 
 //have the animation flipcard to the back
-}
+// }
 
 // $('body').on('click', function() {
 //  $('h1').effect('bounce', 'slow')
@@ -148,18 +149,24 @@ function checkWinner() {
         winner.text('Player 1 wins this round!') 
         player1Score += 1
         player1Points.text(player1Score)
+        // card2.addClass('toggle')
     } else if (card1.value === card2.value) {
         winner.text('Its a Tie!')
     } else {
         winner.text('Player 2 wins this round')
         player2Score += 1
         player2Points.text(player2Score)
+        // card1.addClass('toggle')
+        
     }
     
     
 }
 //get players name then make it a variable
 //animate text of winner
+    
+
+
 
 var timeLeft = $('#timeLeft')
 var finalWinner = $('#final-winner')
@@ -172,6 +179,7 @@ function countDown(){
     if(seconds <= 0){
         clearInterval(theIntervalId)
         restart.show()
+    
         //check player 1 and player 2 score
         if (player1Score > player2Score) {
             finalWinner.text('WINNER Player 1!')
@@ -185,19 +193,21 @@ function countDown(){
 }
 
 
+// $('.blink').animate({opacity:0},200,'linear',function(){
+//     $(this).animate({opacity:1},200);
+//   });
 
 
-restart.on('click', function() {
+  restart.on('click', function() {
     seconds = 30
     cardTwo.attr('src', './images/marvel2.jpg')
     cardOne.attr('src', './images/marvel2.jpg')
     player1Points.text('')
     player2Points.text('')
     currentPlayer = game.player1
-    clearInterval(theIntervalId)
     finalWinner.text('')
     fightsound.play()
+    clearInterval(theIntervalId)
     //reset array loop
 })
-    
 

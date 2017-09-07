@@ -18,24 +18,24 @@ img:hover {
 }
 
 img {
-margin: 100px;
+margin: 50px;
 width: 300px;
 height: 500px;
-background-size: cover;
+background-size: 80%;
 border-radius: 30px;
 border: 4px solid #000508;
 }
 
-.cards {
+/* .cards {
 display: inline;
 margin: auto 300px;
-}
+} */
 
 body {
 text-align: center;
 background-color: dodgerblue;
-/* background-size: 90%; */
-/* background-image: url('http://jamiesawyer.com/wp-content/uploads/2016/05/Captain-America-Civil-War-Key-Art.jpg'); */
+/* background-size: cover; */
+/* background-image: url('https://media3.giphy.com/media/c3rVCpBaa2w5W/200.webp#73-grid1'); */
 /* font-family: 'Orbitron', sans-serif; */
 font-family: 'Righteous', cursive;
 /* font-family: 'Baloo Tammudu', cursive; */
@@ -50,56 +50,37 @@ button {
     border-radius: 25px;
 }
 
-
-#timeLeft {
-    text-align: center;
+.third {
+    width: 33%;
+    display: block;
 }
 
-/* #right {
-    float: right;
-    margin: 800px 0;
+
+/* #timeLeft {
+    text-align: center;
+} */
+
+.toggle:hover {
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+  
+  @keyframes shake {
+    10%, 90% {
+      transform: translate3d(-1px, 0, 0);
+    }
     
-}
-
-#left {
-    float: left;
-    margin: 800px auto;
-} */
-
-/* @keyframes text {
-    0%   {color:red; left:0px; top:0px;}
-    25%  {color:yellow; left:200px; top:0px;}
-    50%  {color:blue; left:200px; top:200px;}
-    75%  {color:green; left:0px; top:200px;}
-    100% {color:red; left:0px; top:0px;}
-}
-
-/* The element to apply the animation to */
-/* #final-winner {
-    width: 100px;
-    height: 100px;
-    position: relative;
-    background-color: red;
-    animation-name: text;
-    animation-duration: 8s;
-    animation-iteration-count: infinite;
-} */ 
-
-/* .card {
-    width: 100%;
-    height: 300px;
-}
-.card .front {
-    text-align: center;
-    font-size: 30px;
-    font-weight: 200;
-}
-.card > .back {
-    word-wrap: break-word;
-}
-.card .back {
-    text-align: center;
-    font-size: 30px;
-    font-weight: 200;
-    background-color: #eee;
-} */
+    20%, 80% {
+      transform: translate3d(2px, 0, 0);
+    }
+  
+    30%, 50%, 70% {
+      transform: translate3d(-4px, 0, 0);
+    }
+  
+    40%, 60% {
+      transform: translate3d(4px, 0, 0);
+    }
+  }

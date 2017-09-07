@@ -10,6 +10,7 @@
     integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
     crossorigin="anonymous"></script>
     <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
     <link href="https://fonts.googleapis.com/css?family=Baloo+Tammudu|Orbitron|Righteous" rel="stylesheet">
     <script src="https://raw.githubusercontent.com/mattboldt/typed.js/master/js/typed.js"></script>
     <script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
@@ -25,33 +26,30 @@
 
 <!-- round 1 fight! sound effects -->
 
-<h1 id="final-winner"></h1>
-
-<!-- <div id="card"> 
-    <div class="front"> 
-    </div> 
-    <div class="back">
-        </div> 
-</div> -->
-
-<div id="carddiv">
-        <img id ="cardOne" src="images/marvel2.jpg" alt="">
-         <img id="cardTwo" src="images/marvel2.jpg" alt="">
-    </div>
+<h1 id="final-winner" class="blink"></h1>
 
 <h2 id="winner"></h2>
 
+<div id="board">
 
-<h2 id="timeLeft">Time Left: 30</h2>
+<div class="third">    
+<h2>P1 Score</h2>
+<h2 id="player1-points"></h2>
 
+<img id ="cardOne" class="toggle" src="images/marvel2.jpg" alt="">
+ </div>
+    
+    <div class="third">
+    <h2 id="timeLeft">Time Left: 30</h2>
+    </div>
 
-    <h2>P1</h2>
-    <h2 id="player1-points"></h2>
+    <div class="third"> 
+    <img id="cardTwo" class="toggle" src="images/marvel2.jpg" alt="">          
+ <h2>P2 Score</h2>
+ <h2 id="player2-points"></h2>
+ </div>
 
-   
-  
-    <h2>P2</h2>
-    <h2 id="player2-points"></h2>
+</div>
 
     
 
