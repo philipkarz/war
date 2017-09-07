@@ -18,6 +18,7 @@ theIntervalId = setInterval(countDown, 1000)
 seconds = 30
 carddiv.show()
 fightsound.play()
+//h1 text ready set fight
     
 })
 
@@ -65,6 +66,8 @@ var game = {
     }
 }
 
+//make gifs
+
 currentPlayer = game.player1
  
  function switchPlayer() {
@@ -97,6 +100,11 @@ function shuffleCards(cards) {
     return cards
 }
 
+function reset() {
+    cardTwo.attr('src', './images/marvel2.jpg')
+    cardOne.attr('src', './images/marvel2.jpg')
+}
+
 var card = $('#card')
 
 cardOne.on('click', function() {
@@ -107,18 +115,28 @@ cardOne.on('click', function() {
 
 })
 
+//whichever player loses have animation shake card div
+
 cardTwo.on('click', function() {
     
     var cardsInPlay = shuffleCards(game.player2.cards)
     card2 = cardsInPlay.pop()
     cardTwo.attr('src', card2.src)
-
-    // card.flip('toggle');
+    // this.flip('toggle');
     checkWinner() 
     winner.text('')
     switchPlayer()
+    //callback reset after card2 is shown
+    {
+        return reset()
+    }
 
 })
+
+function flipCard() {
+
+//have the animation flipcard to the back
+}
 
 // $('body').on('click', function() {
 //  $('h1').effect('bounce', 'slow')
@@ -166,9 +184,6 @@ function countDown(){
     }
 }
 
-function flipCard() {
-
-}
 
 
 
@@ -182,6 +197,7 @@ restart.on('click', function() {
     clearInterval(theIntervalId)
     finalWinner.text('')
     fightsound.play()
+    //reset array loop
 })
     
 
