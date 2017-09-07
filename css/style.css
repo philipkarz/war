@@ -3,27 +3,23 @@
 
 
 h1 {
-    font-size: 80px;
+    font-size: 100px;
     text-align: center;
     color: black;
 }
 
 h2 {
-color: white;
-font-size: 50px;
-}
-
-img:hover {
-    background: grey;
+    color: white;
+    font-size: 70px;
 }
 
 img {
-margin: 50px;
-width: 300px;
-height: 500px;
-background-size: 80%;
-border-radius: 30px;
-border: 4px solid #000508;
+    width: 300px;
+    height: 500px;
+    background-size: 80%;
+    border-radius: 30px;
+    border: 4px solid #000508;
+    display: inline-block;
 }
 
 /* .cards {
@@ -32,13 +28,13 @@ margin: auto 300px;
 } */
 
 body {
-text-align: center;
-background-color: dodgerblue;
-/* background-size: cover; */
-/* background-image: url('https://media3.giphy.com/media/c3rVCpBaa2w5W/200.webp#73-grid1'); */
-/* font-family: 'Orbitron', sans-serif; */
-font-family: 'Righteous', cursive;
-/* font-family: 'Baloo Tammudu', cursive; */
+    text-align: center;
+    background-color: dodgerblue;
+    background-size: cover;
+    background-image: url('https://static1.squarespace.com/static/53323bb4e4b0cebc6a28ffa2/t/56e1d46d45bf21613f224998/1457640588568/');
+    /* font-family: 'Orbitron', sans-serif; */
+    font-family: 'Righteous', cursive;
+    /* font-family: 'Baloo Tammudu', cursive; */
 }
 
 button {
@@ -50,17 +46,14 @@ button {
     border-radius: 25px;
 }
 
-.third {
-    width: 33%;
-    display: block;
+.w {
+    max-width: 15%;
+    display: inline-block;
 }
 
 
-/* #timeLeft {
-    text-align: center;
-} */
 
-.toggle:hover {
+.toggle:click {
     animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
     transform: translate3d(0, 0, 0);
     backface-visibility: hidden;
@@ -84,3 +77,18 @@ button {
       transform: translate3d(4px, 0, 0);
     }
   }
+
+  /* .toggle:hover {    
+    animation: shake 0.1s ease-in-out 0.1s infinite alternate;
+}
+
+@keyframes shake {
+ from {
+    -webkit-transform: rotate(10deg);
+ }
+ to {
+   -webkit-transform-origin:center center;
+   -webkit-transform: rotate(-10deg);
+ }
+
+} */

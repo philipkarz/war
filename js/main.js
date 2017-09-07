@@ -29,7 +29,7 @@ var game = {
         score: 0,
         cards: [
             { src : 'images/captain.jpg', value: 1 },
-            { src : 'images/batman.jpg', value: 3 },
+            { src : 'images/scarlet.jpg', value: 3 },
             { src : 'images/ironman.jpg', value: 6 },
             { src : 'images/rocket.jpg', value: 4 },
             { src : 'images/thor.jpg', value: 10 },
@@ -38,7 +38,7 @@ var game = {
             
             { src : 'images/deadpool.jpg', value: 11 },
             
-            { src : 'images/capybara.jpg', value: 13 },
+            { src : 'images/capybara2.jpg', value: 13 },
             { src : 'images/vision.jpg', value: 8 },
             { src : 'images/punisher.jpg', value: 5 },
             { src : 'images/spiderman.jpg', value: 2 },
@@ -59,7 +59,7 @@ var game = {
             { src : 'images/captain.jpg', value: 1 },
             { src : 'images/capybara.jpg', value: 13 },
             { src : 'images/vision.jpg', value: 8 },
-            { src : 'images/batman.jpg', value: 3 },
+            { src : 'images/scarlet.jpg', value: 3 },
             { src : 'images/spiderman.jpg', value: 2 }, 
     
         ]
