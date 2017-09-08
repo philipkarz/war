@@ -3,7 +3,7 @@ var startGame = $('#start-game')
 var board = $('#board')
 var restart=$('#restart')
 board.hide()
-// restart.hide()
+restart.hide()
 
 $('#fight').typeIt({
     strings: ['Ready', 'Set', 'Fight', 'Fight'],
@@ -15,8 +15,7 @@ $('#fight').typeIt({
         $('#fight').hide()
     }
 })
-    
-// $('#fight').text('')
+
 
 
 
@@ -25,7 +24,6 @@ theIntervalId = setInterval(countDown, 1000)
 seconds = 30
 board.show()
 fightsound.play()
-//h1 text ready set fight
     
 })
 
@@ -201,13 +199,9 @@ function countDown(){
         }
     blink(finalWinner)
         sound.play()
+        restart.show()
     }
 }
-
-
-// $('.blink').animate({opacity:0},200,'linear',function(){
-//     $(this).animate({opacity:1},200);
-//   });
 
 
   restart.on('click', function() {
@@ -221,6 +215,5 @@ function countDown(){
     fightsound.play()
     theIntervalId = setInterval(countDown, 1000)
     countDown()
-    //reset array loop
 })
 

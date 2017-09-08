@@ -1,5 +1,8 @@
+#Comic Clash
+2 player card game
+
 ##Game Summary
-Choose a side in this marvel civil war. Taking turns, each player picks a random card from the deck and whichever character is stronger wins the round. After 30 seconds the player with the higher score is the winner.
+Play the card game war with marvel characters. Taking turns, each player picks a random card from the deck. Whoever picks the stronger character takes the round. After 30 seconds the player with the highest score is the winner.
 
 ##Technologies
 Comic Clash is built using HTML CSS Javascript and JQuery
@@ -7,7 +10,20 @@ Comic Clash is built using HTML CSS Javascript and JQuery
 ##User Stories
 Press the fight button for the players to be given cards
 Press the play again button to start the game over
-Experience what its like to be in a comic book
+
+##Aproach Taken
+1. Began with 2 separate arrays for each player
+2. Used a shuffle function to randomize players cards
+3. Made a click function for each card
+4. Made a checkWinner function to keep track of score
+5. After 2 cards are chosen they flip back over
+6. Created a countdown of 30 seconds which then declares the winner
+7. Added sound and css animations 
+
+
+##Unsolved problems
+- The css/html layout could use some more work
+- Would have liked to make the game more interactive, give players the ability to choose moves and fight eachother
 
 
 
@@ -18,20 +34,4 @@ Experience what its like to be in a comic book
 
 
 
-#big title
-##smaller
-_______
-
-code snippet:
-this is an `inline block`
-
-```javascript
-var hello = "boom" 
-```
-
-1. list item
-2. vvvvvv
-
-- item 2
-- item 3
 
