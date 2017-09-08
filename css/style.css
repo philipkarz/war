@@ -22,10 +22,6 @@ img {
     display: inline-block;
 }
 
-/* .cards {
-display: inline;
-margin: auto 300px;
-} */
 
 body {
     text-align: center;
@@ -77,18 +73,3 @@ button {
       transform: translate3d(4px, 0, 0);
     }
   }
-
-  /* .toggle:active {    
-    animation: shake 0.1s ease-in-out 0.1s infinite alternate;
-}
-
-@keyframes shake {
- from {
-    -webkit-transform: rotate(10deg);
- }
- to {
-   -webkit-transform-origin:center center;
-   -webkit-transform: rotate(-10deg);
- }
-
-} */
