@@ -18,12 +18,14 @@ Press the play again button to start the game over
 4. Made a checkWinner function to keep track of score
 5. After 2 cards are chosen they flip back over
 6. Created a countdown of 30 seconds which then declares the winner
+7. Made restart game function
 7. Added sound and css animations 
 
 
 ##Unsolved problems
 - The css/html layout could use some more work
 - Would have liked to make the game more interactive, give players the ability to choose moves and fight eachother
+- Wanted a card flip animation when player clicks a card
 
 
 
