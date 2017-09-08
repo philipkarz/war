@@ -137,7 +137,7 @@ cardTwo.on('click', function() {
         checkWinner() 
         setTimeout(function() {
             reset()
-        }, 2000)
+        }, 1500)
     }
     winner.text('')
     switchPlayer()

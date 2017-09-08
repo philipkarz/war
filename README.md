@@ -22,8 +22,10 @@ Press the play again button to start the game over
 7. Added sound and css animations 
 
 
-##Unsolved problems
+##Unsolved Problems
 - The css/html layout could use some more work
+
+##Things to Add
 - Would have liked to make the game more interactive, give players the ability to choose moves and fight eachother
 - Wanted a card flip animation when player clicks a card
 
