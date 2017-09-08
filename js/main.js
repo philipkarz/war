@@ -43,9 +43,9 @@ var game = {
             { src : 'images/hulk4.jpg', value: 12 },
             { src : 'images/wolverine.jpg', value: 7 },
             
-            { src : 'images/deadpool2.jpg', value: 11 },
+            { src : 'images/deadpool.jpg', value: 11 },
             
-            { src : 'images/capybara2.jpg', value: 13 },
+            { src : 'images/capybara.jpg', value: 13 },
             { src : 'images/vision.jpg', value: 8 },
             { src : 'images/punisher.jpg', value: 5 },
             { src : 'images/spiderman.jpg', value: 2 },
@@ -59,12 +59,12 @@ var game = {
             { src : 'images/punisher.jpg', value: 5 },
             { src : 'images/thor.jpg', value: 10 },
             { src : 'images/hulk4.jpg', value: 12 },
-            { src : 'images/deadpool2.jpg', value: 11 },
+            { src : 'images/deadpool.jpg', value: 11 },
             { src : 'images/wolverine.jpg', value: 7 },
             { src : 'images/ghostrider.jpg', value: 9 },
             { src : 'images/rocket.jpg', value: 4 },
             { src : 'images/captain.jpg', value: 1 },
-            { src : 'images/capybara2.jpg', value: 13 },
+            { src : 'images/capybara.jpg', value: 13 },
             { src : 'images/vision.jpg', value: 8 },
             { src : 'images/scarlet2.jpg', value: 3 },
             { src : 'images/spiderman.jpg', value: 2 }, 
@@ -155,14 +155,12 @@ function checkWinner() {
         player1Score += 1
         player1Points.text(player1Score)
         
-        // card2.addClass('toggle')
     } else if (card1.value === card2.value) {
         winner.text('Its a Tie!')
     } else {
         winner.text('Player 2 wins this round')
         player2Score += 1
         player2Points.text(player2Score)
-        // card1.addClass('toggle')
         
     }
     
