@@ -7,7 +7,7 @@ Play the card game war with marvel characters. Taking turns, each player picks a
 ##Technologies
 Comic Clash is built using HTML CSS Javascript and JQuery
 
-##User Stories
+##How To Play
 Press the fight button for the players to be given cards
 Press the play again button to start the game over
 
