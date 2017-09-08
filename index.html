@@ -4,16 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Comic Clash</title>
     <link rel="stylesheet" href="css/style.css">
     <script src="http://code.jquery.com/jquery-3.2.1.min.js"
     integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
     crossorigin="anonymous"></script>
-    <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
-    <link href="https://fonts.googleapis.com/css?family=Baloo+Tammudu|Orbitron|Righteous" rel="stylesheet">
-    <script src="https://raw.githubusercontent.com/mattboldt/typed.js/master/js/typed.js"></script>
-    <script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
+    
+    
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Tammudu|Orbitron|Righteous" rel="stylesheet">>
+    <script src="https://cdn.jsdelivr.net/jquery.typeit/4.4.0/typeit.min.js"></script>
+
+    
 </head>
 <body>
     <h1>Comic Clash</h1>
@@ -22,18 +23,16 @@
 
     <button id="start-game">Fight!</button>
 
-    <button id="restart">Play Again</button>
+    <button id="restart">Rematch</button>
 
     <!-- round 1 fight! sound effects -->
 
     <h1 id="final-winner" class="blink"></h1>
 
-    <h2 id="winner"></h2>
-
     <div id="board">
 
     <div class="w">    
-        <h2>P1 Score 0</h2>
+        <h2>P1 Score</h2>
         <h2 id="player1-points"></h2>
     </div>
 
@@ -41,17 +40,19 @@
 
     <div class="w">
         <h2 id="timeLeft">Time Left: 30</h2>
+        <div id="winner"></div>
     </div>
 
+
     <img id="cardTwo" class="toggle" src="images/marvel2.jpg" alt="">          
-    
+
     <div class="w">    
-        <h2>P2 Score 0</h2>
+        <h2>P2 Score</h2>
         <h2 id="player2-points"></h2>
     </div>
 
     </div>
-
+    
     <script src="js/main.js"></script>
 </body>
 </html>

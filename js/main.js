@@ -5,12 +5,19 @@ var restart=$('#restart')
 board.hide()
 // restart.hide()
 
-// $(function(){
-//     $('#fight').typed({
-//       strings: ['Ready', 'Set', 'Fight'],
-//       typeSpeed: 3
-//     });
-// });
+$('#fight').typeIt({
+    strings: ['Ready', 'Set', 'Fight', 'Fight'],
+    speed: 3,
+    breakLines: false,
+    breakDelay: 500,
+    autoStart: false,
+    callback: function(){
+        $('#fight').hide()
+    }
+})
+    
+// $('#fight').text('')
+
 
 
 startGame.on('click', function() {
@@ -29,14 +36,14 @@ var game = {
         score: 0,
         cards: [
             { src : 'images/captain.jpg', value: 1 },
-            { src : 'images/scarlet.jpg', value: 3 },
+            { src : 'images/scarlet2.jpg', value: 3 },
             { src : 'images/ironman.jpg', value: 6 },
             { src : 'images/rocket.jpg', value: 4 },
             { src : 'images/thor.jpg', value: 10 },
-            { src : 'images/hulk.jpg', value: 12 },
+            { src : 'images/hulk4.jpg', value: 12 },
             { src : 'images/wolverine.jpg', value: 7 },
             
-            { src : 'images/deadpool.jpg', value: 11 },
+            { src : 'images/deadpool2.jpg', value: 11 },
             
             { src : 'images/capybara2.jpg', value: 13 },
             { src : 'images/vision.jpg', value: 8 },
@@ -51,15 +58,15 @@ var game = {
             { src : 'images/ironman.jpg', value: 6 },
             { src : 'images/punisher.jpg', value: 5 },
             { src : 'images/thor.jpg', value: 10 },
-            { src : 'images/hulk.jpg', value: 12 },
-            { src : 'images/deadpool.jpg', value: 11 },
+            { src : 'images/hulk4.jpg', value: 12 },
+            { src : 'images/deadpool2.jpg', value: 11 },
             { src : 'images/wolverine.jpg', value: 7 },
             { src : 'images/ghostrider.jpg', value: 9 },
             { src : 'images/rocket.jpg', value: 4 },
             { src : 'images/captain.jpg', value: 1 },
-            { src : 'images/capybara.jpg', value: 13 },
+            { src : 'images/capybara2.jpg', value: 13 },
             { src : 'images/vision.jpg', value: 8 },
-            { src : 'images/scarlet.jpg', value: 3 },
+            { src : 'images/scarlet2.jpg', value: 3 },
             { src : 'images/spiderman.jpg', value: 2 }, 
     
         ]
@@ -108,22 +115,26 @@ function reset() {
 }
 
 var card = $('#card')
+var clickDisabled = false 
 
 cardOne.on('click', function() {
+    if (clickDisabled) {
+        return;
+    } 
     var cardsInPlay = shuffleCards(game.player1.cards)
     card1 = cardsInPlay.pop()
-    cardOne.attr('src', card1.src)
+    $(this).attr('src', card1.src)
     switchPlayer()
-
+    clickDisabled = true;
+    setTimeout(function(){clickDisabled = false;}, 3000);
 })
 
 //whichever player loses have animation shake card div
 
 cardTwo.on('click', function() {
-    
     var cardsInPlay = shuffleCards(game.player2.cards)
     card2 = cardsInPlay.pop()
-    cardTwo.attr('src', card2.src)
+    $(this).attr('src', card2.src)
     if(card1 && card2) {
         checkWinner() 
         setTimeout(function() {
@@ -132,16 +143,10 @@ cardTwo.on('click', function() {
     }
     winner.text('')
     switchPlayer()
+    
+    
 })
 
-// function flipCard() {
-
-//have the animation flipcard to the back
-// }
-
-// $('body').on('click', function() {
-//  $('h1').effect('bounce', 'slow')
-// })
 
 function checkWinner() {
     console.log(card1.value, card2.value)
@@ -149,6 +154,7 @@ function checkWinner() {
         winner.text('Player 1 wins this round!') 
         player1Score += 1
         player1Points.text(player1Score)
+        
         // card2.addClass('toggle')
     } else if (card1.value === card2.value) {
         winner.text('Its a Tie!')
@@ -164,9 +170,16 @@ function checkWinner() {
 }
 //get players name then make it a variable
 //animate text of winner
-    
 
 
+
+function blink(selector){
+    $(selector).fadeOut('slow', function(){
+        $(this).fadeIn('slow', function(){
+            blink(this);
+        })
+    })
+    }
 
 var timeLeft = $('#timeLeft')
 var finalWinner = $('#final-winner')
@@ -188,6 +201,7 @@ function countDown(){
         } else {
             finalWinner.text('WINNER Player 2!') 
         }
+    blink(finalWinner)
         sound.play()
     }
 }
@@ -207,7 +221,8 @@ function countDown(){
     currentPlayer = game.player1
     finalWinner.text('')
     fightsound.play()
-    clearInterval(theIntervalId)
+    theIntervalId = setInterval(countDown, 1000)
+    countDown()
     //reset array loop
 })
 
